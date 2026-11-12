@@ -1,0 +1,85 @@
+.sidebar-nav {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-20px);
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eff0f5;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+.sidebar-item {
+    width: 45px;
+    /* Standard size */
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #757575;
+    position: relative;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.sidebar-item:last-child {
+    border-bottom: none;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+    color: var(--primary-color);
+    background: #fff5f0;
+}
+
+/* Tooltip/Label that slides out to the RIGHT */
+.sidebar-item .tooltip {
+    position: absolute;
+    left: 45px;
+    /* Start at the edge of the item */
+    top: 0;
+    bottom: 0;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-10px);
+    z-index: -1;
+    border-radius: 0 4px 4px 0;
+}
+
+.sidebar-item:hover .tooltip {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 10;
+}
+
+/* Remove old small labels */
+.sidebar-item-label {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .sidebar-nav {
+        display: none !important;
+    }
+}

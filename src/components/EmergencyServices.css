@@ -1,0 +1,203 @@
+.emergency-services-section {
+    padding: 30px 0;
+    background-color: #ffffff;
+    /* White like the image */
+    margin: 10px 0;
+}
+
+.emergency-services-section .section-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.emergency-services-section .section-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #333;
+    /* Dark text instead of navy */
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0.2px;
+}
+
+.emergency-services-section .title-underline {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 110px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.services-slider-wrapper {
+    position: relative;
+    padding-bottom: 45px;
+}
+
+/* Service Card Styling */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.service-img-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.service-card:hover .service-img-circle {
+    border: 2.5px solid var(--primary-color);
+    /* Neon red border */
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.2);
+}
+
+.service-card .service-img-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Important for photos */
+}
+
+.service-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #4b5563;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+    max-width: 120px;
+    transition: color 0.3s ease;
+}
+
+.service-card:hover .service-name {
+    color: var(--primary-color);
+}
+
+/* ---------- Side Navigation Arrows ---------- */
+.pss-side-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+}
+
+.pss-side-prev {
+    left: -10px;
+}
+
+.pss-side-next {
+    right: -10px;
+}
+
+.services-slider-wrapper:hover .pss-side-arrow {
+    opacity: 1;
+}
+
+.pss-side-prev:hover {
+    left: -15px;
+}
+
+.pss-side-next:hover {
+    right: -15px;
+}
+
+.pss-side-arrow svg {
+    width: 20px;
+    height: 20px;
+    color: #444;
+}
+
+.pss-side-arrow:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.pss-side-arrow:hover svg {
+    color: #fff;
+}
+
+/* ---------- Pagination Dots (As per Image) ---------- */
+.pss-pagination {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.pss-pagination.swiper-pagination-lock {
+    display: flex !important;
+}
+
+.pss-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border: 1.5px solid #bbb;
+    opacity: 1 !important;
+    display: inline-block !important;
+    /* Force display even if locked */
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin: 0 !important;
+}
+
+.pss-pagination .swiper-pagination-bullet-active {
+    background: #333 !important;
+    border-color: #333 !important;
+    opacity: 1 !important;
+    transform: scale(1.1);
+}
+
+.emergency-swiper {
+    overflow: visible !important;
+}
+
+@media (max-width: 768px) {
+    .service-img-circle {
+        width: 110px;
+        height: 110px;
+    }
+
+    .service-name {
+        font-size: 11px;
+    }
+}

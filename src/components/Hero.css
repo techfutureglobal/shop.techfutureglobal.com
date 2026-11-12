@@ -1,0 +1,508 @@
+/* =============================================
+   SECONDARY NAV BAR
+   ============================================= */
+.secondary-nav {
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.secondary-nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 46px;
+}
+
+/* BROWSE CATEGORIES Button */
+.browse-cat-trigger {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.browse-cat-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 18px;
+    height: 100%;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+    min-width: 220px;
+    justify-content: flex-start;
+}
+
+.browse-cat-btn:hover {
+    background: var(--primary-hover);
+}
+
+.browse-hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 18px;
+    flex-shrink: 0;
+}
+
+.browse-hamburger span {
+    display: block;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.browse-chevron {
+    margin-left: auto;
+    font-size: 12px;
+}
+
+/* Category Mega Dropdown (shown on hover of trigger area) */
+.cat-mega-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 220px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 999;
+    display: none;
+    border-top: none;
+}
+
+.browse-cat-trigger:hover .cat-mega-dropdown {
+    display: block;
+}
+
+.cat-sidebar-list {
+    padding: 8px 0;
+}
+
+.cat-sidebar-item {
+    position: relative;
+}
+
+.cat-sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-size: 13.5px;
+    color: #333;
+    font-weight: 500;
+}
+
+.cat-sidebar-link:hover,
+.cat-sidebar-item.active .cat-sidebar-link {
+    background: #fff5f2;
+    color: var(--primary-color);
+}
+
+.cat-icon-img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.cat-arrow {
+    margin-left: auto;
+    color: #aaa;
+    flex-shrink: 0;
+}
+
+/* Submenu that appears to the right */
+.cat-submenu-panel {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    min-width: 400px;
+    max-width: 600px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    z-index: 1000;
+    animation: fadeInLeft 0.15s ease;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cat-submenu-heading {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 6px;
+}
+
+.cat-submenu-heading:hover {
+    text-decoration: underline;
+}
+
+.cat-submenu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cat-submenu-link {
+    font-size: 12.5px;
+    color: #555;
+    transition: color 0.15s;
+    padding: 2px 0;
+}
+
+.cat-submenu-link:hover {
+    color: var(--primary-color);
+}
+
+/* Secondary Nav Links */
+.secondary-nav-links {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 20px;
+    gap: 0;
+}
+
+.secondary-nav-links a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 18px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #333;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    border-right: 1px solid #eee;
+}
+
+.secondary-nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Support Section */
+.secondary-nav-support {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 5px;
+}
+
+.support-icon {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.support-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.support-phone {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* =============================================
+   HERO LAYOUT (3-column: sidebar + slider + ad)
+   ============================================= */
+.hero-section {
+    margin-top: 0;
+    padding: 12px 0;
+    background: #ffffff;
+}
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 190px;
+    gap: 12px;
+    align-items: start;
+}
+
+/* LEFT: Category Sidebar */
+.hero-cat-sidebar {
+    background: #fff;
+    border-radius: 12px;
+    padding: 6px 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.hero-cat-item {
+    position: relative;
+    padding: 9px 14px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+    border-bottom: 1px solid #fafafa;
+}
+
+.hero-cat-item.active,
+
+.hero-cat-item:last-child {
+    border-bottom: none;
+}
+
+.hero-cat-item:hover {
+    background: #fff5f2;
+    color: var(--primary-color);
+}
+
+.hero-cat-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.hero-cat-arrow {
+    margin-left: auto;
+    color: #bbb;
+    flex-shrink: 0;
+}
+
+/* Skeleton loading items */
+.skeleton-item {
+    pointer-events: none;
+}
+
+.skeleton-text {
+    display: block;
+    height: 12px;
+    width: 70%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 6px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* CENTER: Slider */
+.hero-slider {
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+}
+
+/* RIGHT: Ad Banner */
+.hero-ad {
+    width: 190px;
+    height: 300px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    flex-shrink: 0;
+}
+
+.hero-ad a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-ad img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-ad-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #fff5f2 0%, #fff0eb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ff8c00;
+}
+
+.hero-ad-placeholder-inner {
+    text-align: center;
+    color: #7a9cc0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.hero-ad-placeholder-inner p {
+    font-size: 13px;
+    font-weight: 600;
+    color: #5c85b5;
+    margin: 0;
+}
+
+.hero-ad-placeholder-inner small {
+    font-size: 10px;
+    color: #aaa;
+}
+
+/* Swiper custom overrides */
+/* Custom Hero Slider Arrows (Matching Offer Products style) */
+.hero-slider {
+    position: relative;
+}
+
+.hero-side-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+}
+
+.hero-side-prev {
+    left: 10px;
+}
+
+.hero-side-next {
+    right: 10px;
+}
+
+.hero-slider:hover .hero-side-arrow {
+    opacity: 1;
+}
+
+.hero-side-prev:hover {
+    left: 5px;
+}
+
+.hero-side-next:hover {
+    right: 5px;
+}
+
+.hero-side-arrow svg {
+    width: 20px;
+    height: 20px;
+    color: #444;
+}
+
+.hero-side-arrow:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.hero-side-arrow:hover svg {
+    color: #fff;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary-color) !important;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 1024px) {
+    .hero-layout {
+        grid-template-columns: 200px 1fr 160px;
+    }
+
+    .browse-cat-btn {
+        min-width: 200px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Hide secondary nav on mobile */
+    .secondary-nav {
+        display: none;
+    }
+
+    .hero-section {
+        padding: 6px 0;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .hero-cat-sidebar,
+    .hero-ad {
+        display: none;
+    }
+
+    .hero-slider {
+        height: 180px;
+        border-radius: 8px;
+    }
+
+    .hero-side-arrow {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slider {
+        height: 155px;
+        border-radius: 8px;
+    }
+}

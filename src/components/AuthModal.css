@@ -1,0 +1,394 @@
+/* Base Modal Overlay - Absolute Full Coverage */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    padding: 15px;
+    animation: authFadeIn 0.3s ease-out;
+}
+
+@keyframes authFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Auth Container - Smaller & Fixed */
+.auth-book-container {
+    width: 450px;
+    height: 600px;
+    /* Fixed height for the book */
+    perspective: 1500px;
+    position: relative;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes authSlideIn {
+    from {
+        transform: scale(0.95) translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    z-index: 2100;
+    background: rgba(255, 255, 255, 0.9);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg) scale(1.1);
+    color: var(--primary-color);
+}
+
+/* Tabs - Fixed at Top */
+.auth-tabs {
+    display: flex;
+    background: #f8f9fa;
+    padding: 6px;
+    gap: 6px;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 700;
+    color: #777;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* The Flip Logic */
+.auth-book {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    /* No margin-left 50% here - it stays centered */
+    transform-origin: left center;
+}
+
+/* The Book Spine */
+.auth-book::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to right, #ccc, #fff, #ccc);
+    z-index: 10;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.auth-book.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* Common Page Styling */
+.book-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform-origin: left;
+}
+
+.book-page.front {
+    z-index: 2;
+}
+
+.book-page.back {
+    transform: rotateY(180deg);
+}
+
+/* Page Content */
+.page-content {
+    padding: 30px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Decorative Middle Line (Spine effect) */
+.page-shadow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent);
+    z-index: 5;
+}
+
+.back .page-shadow {
+    left: auto;
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.05), transparent);
+}
+
+/* Tabs */
+.auth-tabs {
+    display: flex;
+    border-bottom: 2px solid #f2f2f2;
+    margin-bottom: 25px;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.auth-logo {
+    height: 40px;
+    margin-bottom: 12px;
+    object-fit: contain;
+}
+
+.welcome-section h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.welcome-section p {
+    font-size: 13.5px;
+    color: #333333 !important;
+    /* Force dark text */
+    font-weight: 500;
+}
+
+/* Form Groups */
+.auth-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #000000 !important;
+    /* Maximum contrast */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px 14px;
+    background: #ffffff !important;
+    border: 1.5px solid #bababa !important;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #000000 !important;
+    /* Force black text */
+    transition: all 0.2s;
+    width: 100%;
+    outline: none;
+}
+
+/* Fix for browser autofill background/text color mix */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+.form-group input::placeholder {
+    color: #777777 !important;
+    /* Darker placeholder */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    background: #ffffff !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 4px rgba(248, 86, 6, 0.1) !important;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.forgot-pass {
+    align-self: flex-end;
+    font-size: 12px;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-primary-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: all 0.2s;
+}
+
+.auth-primary-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+/* Social Buttons */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.auth-divider span {
+    padding: 0 10px;
+    font-size: 11px;
+    color: #aaa;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.social-btn {
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+}
+
+.switch-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13.5px;
+    color: #333333 !important;
+}
+
+.switch-text span {
+    color: var(--primary-color);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Error States */
+.error-msg {
+    color: #dc3545;
+    background: #fff5f5;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #ffe3e3;
+}
+
+/* Mobile Fixes - Still Centered but fits better */
+@media (max-width: 500px) {
+    .modal-overlay {
+        padding: 0;
+        align-items: flex-end;
+        /* Mobile standard: bottom sheet look but centered safe */
+    }
+
+    .auth-book-container {
+        max-width: 100%;
+        border-radius: 20px 20px 0 0;
+        max-height: 90vh;
+    }
+
+    .book-page {
+        padding: 25px 20px 40px;
+    }
+}

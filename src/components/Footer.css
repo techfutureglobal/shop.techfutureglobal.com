@@ -1,0 +1,290 @@
+/* =============================================
+   FOOTER CSS — COMPACT, 4-COLUMN LAYOUT
+   ============================================= */
+
+/* ── Outer wrapper ── */
+.footer-main {
+    background: #ffffff;
+    color: #444444;
+    margin-top: 40px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Top Orange Strip ── */
+.footer-top-strip {
+    height: 5px;
+    background: var(--primary-color, #f85606);
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* ── Inner content area grows to push copyright to bottom ── */
+.footer-inner {
+    flex: 1;
+}
+
+.footer-main .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 36px 20px 28px;     /* reduced from 60px */
+}
+
+/* ── Content Layout ── */
+.footer-content-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;                   /* reduced from 60px */
+    margin-bottom: 24px;         /* reduced from 40px */
+}
+
+/* ── Brand Column — narrower now ── */
+.footer-brand-column {
+    flex: 0 0 200px;             /* reduced from 320px */
+    min-width: 0;
+}
+
+.footer-logo-img {
+    height: 46px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.footer-logo-text-branding {
+    font-size: 22px;
+    font-weight: 800;
+    color: #000;
+    margin: 0 0 14px 0;
+}
+
+.footer-description {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* App Download Section */
+.download-app-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.app-store-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.app-badge img {
+    height: 34px;
+    transition: transform 0.2s ease;
+}
+
+.app-badge:hover img {
+    transform: scale(1.04);
+}
+
+/* ── Links Grid — 4 equal columns ── */
+.footer-links-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    min-width: 0;
+}
+
+.footer-col-head {
+    font-size: 14px;
+    font-weight: 800;
+    color: #111;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.footer-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-link-list li {
+    margin-bottom: 10px;
+}
+
+.footer-link-list li a {
+    color: #555;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+.footer-link-list li a:hover {
+    color: var(--primary-color, #f85606);
+}
+
+/* ── Contact Info ── */
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.footer-contact-item .contact-icon {
+    font-size: 13px;
+    color: var(--primary-color, #f85606);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.footer-contact-item a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-contact-item a:hover {
+    color: var(--primary-color, #f85606);
+}
+
+/* ── Social Icons Row ── */
+.footer-social-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.social-icon-box {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link.facebook  { background: #3b5998; }
+.social-link.youtube   { background: #cd201f; }
+.social-link.instagram { background: #c13584; }
+.social-link.twitter   { background: #000; }
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ── Copyright Bar — always at the very bottom ── */
+.footer-bottom-strip {
+    background: #111111;
+    padding: 12px 0;            /* reduced from 15px */
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.footer-bottom-inner {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.footer-copyright-text {
+    color: #aaaaaa;
+    font-size: 12px;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 1024px) {
+    .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .footer-brand-column {
+        flex: 0 0 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content-layout {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .footer-brand-column {
+        flex: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo-img {
+        margin: 0 auto 14px;
+    }
+
+    .app-store-badges {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .footer-social-wrapper {
+        justify-content: center;
+    }
+
+    .footer-main .container {
+        padding: 28px 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .footer-brand-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo-text-branding {
+        text-align: center;
+    }
+}

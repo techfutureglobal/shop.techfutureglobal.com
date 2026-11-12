@@ -1,0 +1,46 @@
+.new-arrivals-section {
+    margin-top: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.section-header h3 {
+    font-size: 22px;
+    color: #424242;
+    font-weight: 500;
+}
+
+.shop-more-btn {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.shop-more-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.products-grid-view {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+@media (max-width: 1024px) {
+    .products-grid-view {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

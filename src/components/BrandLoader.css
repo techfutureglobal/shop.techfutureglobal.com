@@ -1,0 +1,264 @@
+.brand-preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #ffffff 0%, #f8fafc 100%);
+  padding: 20px;
+  box-sizing: border-box;
+  user-select: none;
+  animation: brandFadeIn 0.3s ease-out;
+}
+
+.brand-preloader-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 82vh;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.brand-loader-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Outer Glowing Ambient Orb */
+.brand-loader-glow-orb {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(var(--primary-rgb, 242, 66, 43), 0.15) 0%, rgba(var(--primary-rgb, 242, 66, 43), 0) 70%);
+  filter: blur(20px);
+  pointer-events: none;
+  animation: brandGlowPulse 3s ease-in-out infinite alternate;
+}
+
+/* Logo & Orbit Wrapper */
+.brand-loader-logo-wrapper {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07), 0 2px 8px rgba(var(--primary-rgb, 242, 66, 43), 0.12);
+  margin-bottom: 22px;
+  z-index: 1;
+  animation: brandLogoFloat 2.5s ease-in-out infinite;
+}
+
+.brand-loader-orbit {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--primary-color, #f2422b);
+  border-right-color: var(--secondary-color, #ff8c00);
+  animation: brandSpin 1.2s cubic-bezier(0.6, 0.2, 0.4, 0.9) infinite;
+  filter: drop-shadow(0 0 6px rgba(var(--primary-rgb, 242, 66, 43), 0.4));
+}
+
+.brand-loader-orbit-dashed {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(var(--primary-rgb, 242, 66, 43), 0.25);
+  animation: brandSpinReverse 6s linear infinite;
+}
+
+.brand-loader-img {
+  max-width: 58px;
+  max-height: 58px;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.brand-loader-icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary-color, #f2422b), #ff6b4a);
+  color: #ffffff;
+  font-size: 26px;
+  box-shadow: 0 6px 16px rgba(var(--primary-rgb, 242, 66, 43), 0.35);
+}
+
+/* Brand Name / Title */
+.brand-loader-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #1e293b;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 1;
+}
+
+.brand-loader-title-highlight {
+  color: var(--primary-color, #f2422b);
+}
+
+/* Glowing Progress Bar */
+.brand-loader-progress-track {
+  width: 160px;
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  margin: 12px 0 10px;
+  z-index: 1;
+}
+
+.brand-loader-progress-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(90deg, var(--primary-color, #f2422b), var(--secondary-color, #ff8c00));
+  border-radius: 100px;
+  animation: brandProgressFill 1.5s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(var(--primary-rgb, 242, 66, 43), 0.5);
+}
+
+/* Status text with animated wave dots */
+.brand-loader-status {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  z-index: 1;
+}
+
+.brand-loader-dots span {
+  display: inline-block;
+  animation: brandDotWave 1.4s infinite;
+  font-weight: 700;
+  color: var(--primary-color, #f2422b);
+}
+
+.brand-loader-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.brand-loader-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Refresh fallback */
+.brand-loader-refresh-btn {
+  margin-top: 22px;
+  font-size: 12px;
+  color: #94a3b8;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.brand-loader-refresh-btn:hover {
+  color: var(--primary-color, #f2422b);
+  background: rgba(var(--primary-rgb, 242, 66, 43), 0.06);
+}
+
+/* Keyframes */
+@keyframes brandSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes brandSpinReverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes brandLogoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes brandGlowPulse {
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+@keyframes brandProgressFill {
+  0% {
+    left: -45%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes brandDotWave {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+@keyframes brandFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,362 @@
+/* Global Styles and Reset */
+/* Using Inter font for a premium, clean look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* EbayBD Brand Colors - Now Neon Red Theme */
+  --primary-color: #f2422b; 
+  --primary-rgb: 242, 66, 43;
+  /* Neon Red */
+  --primary-hover: #d93b26;
+  --secondary-color: #ff8c00; 
+  /* Orange accent */
+  --text-color: #212121;
+  /* Dark grey for readability */
+  --text-light: #757575;
+  /* Lighter grey for secondary text */
+  --bg-color: #ffffff;
+  /* Pure white background for the app */
+  --white: #ffffff;
+  --border-color: #eff0f5;
+
+  /* Dynamic Theme Variables */
+  --button-bg: var(--primary-color);
+  --primary-hover: #d93b26;
+  --base-font-size: 14px;
+  --search-btn-bg: var(--primary-color); 
+  /* Red button for search contrast */
+
+  /* Spacing and Layout */
+  --container-width: 1200px;
+  /* Standard width for desktop view */
+  --header-height: 100px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  font-size: var(--base-font-size);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Global Centering Utility for Backgrounds and Images */
+[style*="background-image"],
+.bg-image-fill,
+.footer-section,
+.store-banner,
+.reseller-public-banner,
+.hero-slider img,
+.hero-ad img {
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  object-position: center center !important;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Container Utility to center content */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Helper Class for Flexbox */
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+}
+
+/* Button Reset */
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+/* Global Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Button Hover Effects */
+button {
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Input Focus Effects */
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2);
+  /* Orange glow */
+  transition: box-shadow 0.2s;
+}
+
+.section-container {
+  margin-top: 20px;
+}
+
+.section-title-main {
+  font-size: 22px;
+  font-weight: 400;
+  color: #424242;
+  margin-bottom: 10px;
+}
+
+.load-more-container {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.load-more-btn {
+  border: 1px solid var(--button-bg);
+  color: var(--button-bg);
+  background: transparent;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.load-more-btn:hover {
+  background: var(--button-bg);
+  color: white;
+}
+
+.btn-primary {
+  background: var(--button-bg) !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Utility Classes */
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+/* Global Product Grid */
+.products-grid-view {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px; /* Increased gap */
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .products-grid-view {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .products-grid-view {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products-grid-view {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+/* Global Preloader Overlay */
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-text {
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+
+/* Blackish Shimmer / Pulse Animation */
+.shimmer-dark {
+  background: #d4d4d4;
+  background: linear-gradient(90deg, #d4d4d4 0%, #a9a9a9 50%, #d4d4d4 100%);
+  background-size: 200% 100%;
+  animation: shimmerDarkAnim 1.5s infinite linear;
+}
+
+@keyframes shimmerDarkAnim {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Suspense Loader (Section loading) */
+.suspense-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  width: 100%;
+}
+
+.suspense-loader .loader-spinner {
+  width: 40px;
+  height: 40px;
+  border-width: 3px;
+}
+
+.update-notification-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #2d3436;
+  color: white;
+  z-index: 100001;
+  padding: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.4s ease-out;
+}
+
+.update-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.update-content button {
+  background: var(--primary-color);
+  color: white;
+  padding: 6px 18px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}

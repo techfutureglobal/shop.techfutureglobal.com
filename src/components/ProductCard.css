@@ -1,0 +1,194 @@
+/* =========================================================
+   ProductCard — REFINED DESIGN (STANDARD FIXED DIMENSIONS)
+   ========================================================= */
+
+/* ── Link wrapper ── */
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/* ── Card ── */
+.product-card {
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow auto height for better square proportions */
+    min-height: 310px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    border-color: #ddd;
+}
+
+/* ── Image Area (Fixed Square) ── */
+.product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Makes the image area perfectly square */
+    overflow: hidden;
+    background: #f5f5f5;
+    flex-shrink: 0;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fills the entire box — no white gaps */
+    object-position: center;
+    padding: 0;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+}
+
+/* ── Badges ── */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: 800;
+    color: #ffffff;
+    border-radius: 4px;
+    z-index: 3;
+    text-transform: uppercase;
+}
+
+.badge-new { background-color: #43a047; }
+.badge-discount { 
+    top: 40px; /* if new badge exists */
+    background-color: #f2422b; 
+}
+
+/* ── Info Area ── */
+.product-info {
+    padding: 15px 12px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: left;
+}
+
+.product-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    margin: 0 0 3px 0;
+    line-height: 1.3;
+    height: 36px; /* Reduced for tighter look */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+}
+
+.product-category {
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 5px;
+    height: 14px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 8px;
+}
+
+/* ── Price Area (Fixed Bottom) ── */
+.product-price {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-current {
+    font-size: 18px;
+    font-weight: 800;
+    color: #f2422b;
+}
+
+.price-original {
+    font-size: 13px;
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+/* Hover Toolbar */
+.product-hover-toolbar {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) translateX(20px);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-hover-toolbar {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+.toolbar-btn {
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    color: #444;
+    font-size: 14px;
+}
+
+.toolbar-btn:hover {
+    background: #f2422b;
+    color: #fff;
+}
+
+/* Tooltip (Hidden on mobile) */
+.toolbar-tooltip { display: none; }
+
+/* ── Mobile Tweaks ── */
+@media (max-width: 768px) {
+    .product-card {
+        min-height: 280px;
+        height: auto;
+    }
+    .product-image {
+        aspect-ratio: 1 / 1; /* Keep square on mobile too */
+    }
+    .product-title {
+        font-size: 13px;
+        height: 36px;
+    }
+    .price-current { font-size: 15px; }
+}

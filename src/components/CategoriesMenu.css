@@ -1,0 +1,210 @@
+.categories-nav {
+    background: #fff;
+    border-bottom: 1px solid #eff0f5;
+    height: 40px;
+}
+
+.mega-menu-container {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    gap: 30px;
+}
+
+.categories-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    color: #212121;
+    padding: 0 15px;
+    transition: all 0.2s;
+}
+
+.categories-trigger:hover {
+    color: var(--primary-color);
+    background: #f5f5f5;
+}
+
+/* Show Dropdown on Hover */
+.mega-menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 270px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eff0f5;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2000;
+}
+
+.categories-trigger:hover .mega-menu-dropdown {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sidebar-main {
+    padding: 5px 0;
+}
+
+.cat-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: static;
+    /* Important for mega panel relative to container if needed, but here we want panel next to side */
+}
+
+.cat-item:hover,
+.cat-item.curr {
+    background: #f5f5f5;
+    color: var(--primary-color);
+}
+
+.cat-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+/* Mega Panel - Attached to the right of the dropdown */
+.mega-panel {
+    position: absolute;
+    top: 0;
+    left: 269px;
+    width: 800px;
+    min-height: 450px;
+    background: #fff;
+    box-shadow: 15px 0 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eff0f5;
+    border-left: none;
+    display: none;
+    padding: 30px;
+    z-index: 2001;
+    animation: fadeInPanel 0.2s forwards;
+}
+
+.cat-item:hover .mega-panel {
+    display: block;
+}
+
+.mega-content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 200px;
+    gap: 30px;
+}
+
+.mega-heading {
+    font-size: 14px;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f5f5f5;
+    padding-bottom: 10px;
+}
+
+.mega-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mega-link-item {
+    font-size: 13px;
+    color: #757575;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.mega-link-item:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.mega-promotion-banner {
+    background: var(--primary-color);
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-card {
+    text-align: center;
+}
+
+.promo-card span {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.promo-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.promo-card button {
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.other-nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.other-nav-links a {
+    font-size: 13px;
+    color: #424242;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.other-nav-links a:hover {
+    color: var(--primary-color);
+}
+
+@keyframes fadeInPanel {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 1100px) {
+    .mega-panel {
+        width: 600px;
+    }
+
+    .mega-content-grid {
+        grid-template-columns: repeat(2, 1fr) 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .categories-nav {
+        display: none;
+    }
+}

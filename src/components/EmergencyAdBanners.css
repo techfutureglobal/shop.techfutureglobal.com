@@ -1,0 +1,70 @@
+/* =============================================
+   EMERGENCY AD BANNERS — Two side-by-side banners
+   Appears just before the Emergency Services section
+   ============================================= */
+
+.emergency-ad-banners-section {
+    margin: 20px auto 10px;
+    padding: 0 15px;
+}
+
+.emergency-ad-banners-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.emergency-ad-banner-item {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 14px;
+    /* Aspect ratio: roughly 16:5 like the demo image */
+    aspect-ratio: 16 / 5;
+    background: #f0f0f0;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+.emergency-ad-banner-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.13);
+}
+
+.emergency-ad-banner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+    transition: transform 0.4s ease;
+}
+
+.emergency-ad-banner-item:hover img {
+    transform: scale(1.03);
+}
+
+.emergency-ad-banner-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 13px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .emergency-ad-banners-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .emergency-ad-banner-item {
+        aspect-ratio: 16 / 6;
+        border-radius: 10px;
+    }
+}

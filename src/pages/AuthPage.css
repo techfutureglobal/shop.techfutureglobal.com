@@ -1,0 +1,211 @@
+.auth-page-container {
+    min-height: 100vh;
+    background-color: #f4f6f9;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-content-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.auth-card {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    /* ← critical: padding doesn't add to width */
+    overflow: hidden;
+    /* ← prevents any child from spilling out */
+    margin: 0 auto;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.auth-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* The form itself must not overflow its parent */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.form-input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* All inputs AND selects — contained properly */
+.form-input-group input,
+.form-input-group select {
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+    /* ← padding doesn't expand width */
+    height: 44px;
+    background-color: #fcfcfc;
+    appearance: auto;
+    -webkit-appearance: auto;
+    display: block;
+}
+
+.form-input-group input:focus,
+.form-input-group select:focus {
+    outline: none;
+    border-color: #f85606;
+    box-shadow: 0 0 0 3px rgba(248, 86, 6, 0.08);
+}
+
+/* Submit button — full width, contained */
+.auth-submit-btn {
+    background: #f85606;
+    color: white;
+    height: 48px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    /* ← must have this */
+    display: block;
+    text-align: center;
+}
+
+.auth-submit-btn:hover {
+    background: #d34a05;
+}
+
+.auth-submit-btn:disabled {
+    background: #ffab81;
+    cursor: not-allowed;
+}
+
+.error-banner {
+    background: #fff5f5;
+    color: #e53e3e;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    border-left: 4px solid #e53e3e;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 5px 0;
+    width: 100%;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.auth-divider span {
+    padding: 0 15px;
+    color: #999;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.social-login-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.social-btn-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 44px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #444;
+}
+
+.social-btn-item:hover {
+    background: #f9f9f9;
+}
+
+.social-icon {
+    font-size: 18px;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+.auth-footer span {
+    color: #f85606;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-footer span:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 30px 20px;
+    }
+}
